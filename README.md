@@ -89,7 +89,7 @@ set -g @minimal-tmux-expanded-icon "󰊓 "
 
 # on all tabs (default is false)
 # false will make it visible for the current tab only
-set -g @minimal-tmux-show-expanded-icons-for-all-tabs true
+set -g @minimal-tmux-show-expanded-icon-for-all-tabs true
 
 # To add or remove extra text in status bar
 set -g @minimal-tmux-status-right-extra ""
