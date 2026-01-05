@@ -63,7 +63,7 @@ status_left=$("$left_state" && get_tmux_option "@minimal-tmux-status-left" "${de
 status_right_extra="$status_right$(get_tmux_option "@minimal-tmux-status-right-extra" "")"
 status_left_extra="$status_left$(get_tmux_option "@minimal-tmux-status-left-extra" "")"
 
-window_status_format=$(get_tmux_option "@minimal-tmux-window-status-format" ' #I:#W ')
+window_status_format=$(get_tmux_option "@minimal-tmux-window-status-format" ' #I:#{?#{m:ssh*,#{pane_current_command}},#(ps -t #{pane_tty} -o args= | grep "^ssh " | sed "s/.* //"),#W} ')
 
 expanded_icon=$(get_tmux_option "@minimal-tmux-expanded-icon" '󰊓 ')
 show_expanded_icon_for_all_tabs=$(get_tmux_option "@minimal-tmux-show-expanded-icon-for-all-tabs" false)
