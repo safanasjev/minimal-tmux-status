@@ -73,6 +73,9 @@ tmux set-option -g status-position "$status"
 tmux set-option -g status-style bg=default,fg=default
 tmux set-option -g status-justify "$justify"
 
+# Increase the length of the string on the left
+tmux set-option -g status-left-length 100
+
 tmux set-option -g status-left "$status_left_extra"
 tmux set-option -g status-right "$status_right_extra"
 
