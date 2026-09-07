@@ -22,7 +22,7 @@ get_tmux_option() {
 # - @minimal-tmux-bg: background color of the status line
 # - @minimal-tmux-fg: foreground color of the status line
 # - @minimal-tmux-status: position of the status line (top or bottom)
-# - @minimal-tmux-justify: justification of the status line (left, centre or right)
+# - @minimal-tmux-justify: justification of the status line (left, centre, right or absolute-centre)
 # - @minimal-tmux-indicator: whether to show the indicator of the prefix
 # - @minimal-tmux-indicator-str: string of the indicator
 # - @minimal-tmux-right: whether to show the right side of the status line
@@ -49,7 +49,7 @@ larrow="$("$use_arrow" && get_tmux_option "@minimal-tmux-left-arrow" "")"
 rarrow="$("$use_arrow" && get_tmux_option "@minimal-tmux-right-arrow" "")"
 
 status=$(get_tmux_option "@minimal-tmux-status" "bottom")
-justify=$(get_tmux_option "@minimal-tmux-justify" "centre")
+justify=$(get_tmux_option "@minimal-tmux-justify" "absolute-centre")
 
 indicator_state=$(get_tmux_option "@minimal-tmux-indicator" true)
 indicator_str=$(get_tmux_option "@minimal-tmux-indicator-str" " tmux ")
@@ -71,7 +71,10 @@ show_expanded_icon_for_all_tabs=$(get_tmux_option "@minimal-tmux-show-expanded-i
 # Setting the options in tmux
 tmux set-option -g status-position "$status"
 tmux set-option -g status-style bg=default,fg=default
-tmux set-option -g status-justify "$justify"
+# falls back to relative centre on tmux < 3.4, which has no absolute-centre
+if ! tmux set-option -g status-justify "$justify" 2>/dev/null; then
+  tmux set-option -g status-justify centre
+fi
 
 tmux set-option -g status-left "$status_left_extra"
 tmux set-option -g status-right "$status_right_extra"

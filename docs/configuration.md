@@ -9,7 +9,7 @@ All options are tmux user options prefixed with `@minimal-tmux-`. Set them via `
 | `@minimal-tmux-bg` | color | `#698DDA` | Background color of the status indicator and current window |
 | `@minimal-tmux-fg` | color | `#000000` | Foreground color of the status indicator and current window |
 | `@minimal-tmux-status` | `top` \| `bottom` | `bottom` | Position of the status bar |
-| `@minimal-tmux-justify` | `left` \| `centre` \| `right` | `centre` | Justification of the status content |
+| `@minimal-tmux-justify` | `left` \| `centre` \| `right` \| `absolute-centre` | `absolute-centre` | Window list justification. `absolute-centre` keeps it fixed in the middle regardless of left/right status content (falls back to `centre` on tmux < 3.4) |
 | `@minimal-tmux-indicator` | bool | `true` | Show the prefix indicator |
 | `@minimal-tmux-indicator-str` | string | ` tmux ` | Text shown when prefix is pressed |
 | `@minimal-tmux-right` | bool | `true` | Show the right side of the status bar |
