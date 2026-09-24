@@ -25,6 +25,9 @@ This is inspired from the zellij prefix indicator, that shows when the prefix ke
 
 > This theme was created with a focus on minimalism and essential elements, ensuring a clean and distraction-free Tmux status bar. Whether you're an experienced Tmux user or just getting started, this theme offers a seamless experience with support for the `prefix key press`.
 
+<h3>📚 <a href="https://mtmux.semi.sh">mtmux.semi.sh</a> - Full Documentation</h3>
+<sub>Configuration · Integration · Stylix · Nix</sub>
+
 </div>
 </p>
 
@@ -70,12 +73,12 @@ set -g @minimal-tmux-left-arrow ""
 
 <br>
 
-```
+```sh
 # These are the default values used inside the plugin to achieve the preview shown above.
 
 set -g @minimal-tmux-fg "#000000"
 set -g @minimal-tmux-bg "#698DDA"
-set -g @minimal-tmux-justify "centre"
+set -g @minimal-tmux-justify "absolute-centre"
 set -g @minimal-tmux-indicator-str "  tmux  "
 set -g @minimal-tmux-indicator true
 set -g @minimal-tmux-status "bottom"
