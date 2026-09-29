@@ -86,3 +86,6 @@ tmux set-option -g window-status-format "$window_status_format"
 "$show_expanded_icon_for_all_tabs" && tmux set-option -g window-status-format " ${window_status_format}#{?window_zoomed_flag,${expanded_icon},}"
 
 tmux set-option -g window-status-current-format "#[fg=${bg}]$larrow#[bg=${bg},fg=${fg}]${window_status_format}#{?window_zoomed_flag,${expanded_icon},}#[fg=${bg},bg=default]$rarrow"
+
+# Change message style
+tmux set-option -g mode-style "fg=${fg},bg=${bg}"
